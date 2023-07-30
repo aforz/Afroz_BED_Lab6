@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: Afroz Alam
+Build-Jdk: 17.0.1
+Implementation-Title: student-registrations-details
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.gl.student.registrations
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/student-registrations-details
+Created-By: Maven Integration for Eclipse
+

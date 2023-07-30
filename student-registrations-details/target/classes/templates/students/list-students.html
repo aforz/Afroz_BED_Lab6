@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+	crossorigin="anonymous">
+
+<title>Student Registration System</title>
+</head>
+
+<body>
+
+	<div>
+		<h4
+			style="background-color: black; color: white; height: 60px; line-height: 2.2; margin-left: 10px; margin-right: 10px;">
+			<span style="margin-left: 10px">Student Registration System</span>
+		</h4>
+		<div class="container">
+			<h3>List Students</h3>
+			<a th:href="@{/students/add}" class="btn btn-primary btn-sm mb-3">
+				Add Student </a>
+			<table class="table table-bordered table-striped">
+				<thead class="thead-dark">
+					<tr>
+						<th>Student First Name</th>
+						<th>Student Last Name</th>
+						<th>Student Course</th>
+						<th>Student Country</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="tempStudent : ${students}">
+
+						<td th:text="${tempStudent.firstName}" />
+						<td th:text="${tempStudent.lastName}" />
+						<td th:text="${tempStudent.course}" />
+						<td th:text="${tempStudent.country}" />
+						<td>
+							<div class="row">
+								<div class="col-small">
+									<form action="#" th:action="@{/students/update}" method="POST">
+										<input type="hidden" name="id" th:value="${tempStudent.id}" />
+										<button type="submit" class="btn btn-primary btn-sm ml-3 mr-1">Update</button>
+
+									</form>
+								</div>
+								<div class="col-small">
+									<form action="#" th:action="@{/students/delete}" method="GET">
+										<input type="hidden" name="id" th:value="${tempStudent.id}" />
+										<button type="submit" class="btn btn-danger btn-sm"
+											onclick="if (!(confirm('Are you sure you want to delete this Student?'))) return false">
+											Delete</button>
+									</form>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
